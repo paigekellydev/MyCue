@@ -11,8 +11,8 @@ export default function ColorWaves() {
             <img id="pink-1" class="color-waves" src={pinkLayer1} alt="pink"/>
             <img id="orange-1" class="color-waves" src={orangeLayer1} alt="pink"/>
             <img id="light-orange" class="color-waves" src={lightOrangeLayer} alt="pink"/>
-            <img id="pink-2" class="color-waves" src={orangeLayer2} alt="pink"/>
-            <img id="orange-2" class="color-waves" src={pinkLayer2} alt="pink"/>
+            <img id="orange-2" class="color-waves" src={orangeLayer2} alt="pink"/>
+            <img id="pink-2" class="color-waves" src={pinkLayer2} alt="pink"/>
         </div>
     )
 }

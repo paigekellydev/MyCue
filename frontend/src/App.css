@@ -1,70 +1,83 @@
-body {
-  background-color:#662cab;
-  color: white
+html {
+  /* background-image: linear-gradient(to top right, rgb(55, 0, 255), #662cab); */
+  background: coral;
+  color: white;
+  height:100%;
+  min-height: 100%;
+  width:auto
 }
 
-#pink-1, #pink-2 {
-  filter: drop-shadow(10px 10px 100px #f4703f);
+.color-waves {
+  position: absolute;
+  margin:0;
+  width:100%;
+  height: auto;
+  background-size: cover;
+  opacity: .86;
 }
 
-#pink-2 {
-  filter: drop-shadow(100px 10px 100px #d83787);
-}
-
-#orange-1, #orange-2 {
-  filter: drop-shadow(10px 10px 100px #fdca6f);
+#pink-1 {
+  filter: drop-shadow(1px 1px 100px #f4703f);
 }
 
 #light-orange {
-  filter: drop-shadow(10px 10px 100px #d83787);
+  filter: drop-shadow(1px 1px 100px #d83787);
 }
 
+#pink-2 {
+  filter: drop-shadow(1px 1px 100px #d83787);
+}
 
-.color-waves {
-  position: fixed;
-  margin:0;
+#orange-1 {
+  filter: drop-shadow(1px 1px 100px #fdca6f);
+}
+
+#orange-2 {
+  filter: drop-shadow(1px 1px 100px #d83787);
+}
+
+h1 {
+  position: absolute;
   width:100%;
-  height:auto
+  height:auto;
+  margin: 0;
+  margin-top: 15%;
+  text-align: center;
+  font-size: 6em;
 }
 
-/* .color-blob {
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 20%;
-  width:10em
+#pre-h1 {
+  position: absolute;
+  margin-top:13%;
+  margin-left: 42%;
+  width: 50%;
+  text-align: left;
+  font-size: 2em;
+}
+
+/* #nav-bar {
+  position: absolute;
+  margin:0;
+  width: 50%;
+  height: auto;
+  background: white;
+  border-radius: 10%;
+  color: white;
+  transform: rotate(10 deg);
 } */
 
-/* .purple {
-  /* border: solid 5em rgb(67, 17, 204); */
- 
-/* } */
+#nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+}
 
-.purple{
-            margin:0 auto;
-            position:relative;
-            width:200px;
-            height:200px;
-            border-top:200px solid red;
-            border-left:1px solid red;
-            border-top-left-radius:200px;
-            float:left;
-            margin-left:100px;
-            box-shadow:inset 0 1px 0 black;
-            }
-    
-            .purple:after{
-            content:"";
-            position:absolute;
-            width:196px;
-            height:196px;
-            border-top:1px solid red;
-            border-left:1px solid red;
-            border-top-left-radius:196px;
-            left:4px;
-            top:4px;
-            box-shadow:0 1px 0 black;
-            }
+#nav-bar ul {
+  display: flex;
+  list-style: none;
+}
 
-.pink {
-  border: solid 5em rgb(204, 17, 126);
+#nav-bar ul li {
+  margin-right: 20px;
 }
