@@ -1,70 +1,52 @@
-html {
+body {
   /* background-image: linear-gradient(to top right, rgb(55, 0, 255), #662cab); */
   background: coral;
   color: white;
-  height:100%;
-  min-height: 100%;
-  width:auto
+  background-image: url('https://imgur.com/L4gzvv1');
+  height: 1080px;
+  width: auto;
+  /* width:auto */
 }
 
 .color-waves {
-  position: absolute;
+  position: fixed;
   margin:0;
   width:100%;
-  height: auto;
   background-size: cover;
-  opacity: .86;
+  opacity: .83;
 }
 
-#pink-1 {
+#pink-1, #pink-1b {
   filter: drop-shadow(1px 1px 100px #f4703f);
 }
 
-#light-orange {
+#pink-1b, #light-orange-b, #pink-2b, #orange-2b, #orange-1b {
+  transform: rotateX(180deg);
+}
+
+#light-orange, #light-orange-b, #pink-2, #pink-2b, #orange-2, #orange-2b {
   filter: drop-shadow(1px 1px 100px #d83787);
 }
 
-#pink-2 {
-  filter: drop-shadow(1px 1px 100px #d83787);
-}
-
-#orange-1 {
+#orange-1, #orange-1b {
   filter: drop-shadow(1px 1px 100px #fdca6f);
 }
 
-#orange-2 {
-  filter: drop-shadow(1px 1px 100px #d83787);
-}
 
-h1 {
+h1, h2, p {
   position: absolute;
   width:100%;
   height:auto;
   margin: 0;
-  margin-top: 15%;
+  margin-top: 20%;
   text-align: center;
-  font-size: 6em;
+  font-size: 5em;
 }
 
-#pre-h1 {
-  position: absolute;
-  margin-top:13%;
-  margin-left: 42%;
-  width: 50%;
-  text-align: left;
-  font-size: 2em;
+p, h2 {
+  margin-top: 30%;
+  font-size: 3em;
 }
-
-/* #nav-bar {
-  position: absolute;
-  margin:0;
-  width: 50%;
-  height: auto;
-  background: white;
-  border-radius: 10%;
-  color: white;
-  transform: rotate(10 deg);
-} */
 
 #nav-bar {
   display: flex;
@@ -80,4 +62,26 @@ h1 {
 
 #nav-bar ul li {
   margin-right: 20px;
+}
+
+form {
+  background: white;
+  position: relative;
+  align-content: center;
+  height: 40%;
+  width: 40%;
+  margin:auto;
+  margin-top: 15%;
+  color: coral;
+  font-size: 30px;
+  padding: 2em;
+}
+
+#username-field {
+  color:black;
+  font-size: 20px;
+}
+
+#tasks-container {
+  position: absolute
 }
