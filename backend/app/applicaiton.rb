@@ -24,29 +24,41 @@ class Application
     #     ]
     #   end
 
-    if req.path.match(/users/) && req.get?
+    if req.path == '/users' && req.get?
       return [
         200,
         {'Content-Type' => 'application/json'},
         [Person.all.to_json]
       ]
     elsif req.path.match(/tasks/) && req.get?
+      id =req.path.split('/')[2]
+      user = Person.find(id)
       return [
         200,
         {'Content-Type' => 'application/json'},
-        [Person.first.tasks.to_json] #how do i determine person
+        [user.tasks.to_json] #how do i determine person
       ]
-    elsif req.path.match(/tasks_by_day/) && req.get?
+    elsif req.path.match(/users/) && req.get?
+      id =req.path.split('/')[2]
+      user = Person.find(id)
       return [
         200,
         {'Content-Type' => 'application/json'},
-        [Day.first.tasks.to_json] #how do i determine person
+        [user.to_json]
       ]
-    elsif req.path.match(/days/) && req.get?
+    elsif req.path == '/days' && req.get?
       return [
         200,
         {'Content-Type' => 'application/json'},
         [Day.all.to_json] #how do i determine person
+      ]
+    elsif req.path.match(/days/) && req.get?
+      id =req.path.split('/')[2]
+      day = Day.find(id)
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [day.tasks.to_json] 
       ]
     end
 
