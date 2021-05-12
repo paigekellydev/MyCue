@@ -3,7 +3,8 @@ import {Switch, Route} from 'react-router-dom'
 import Welcome from '/Users/paigekelly/flatiron/projects/MyCue/frontend/src/pages/Welcome.js'
 import {Component} from 'react'
 import ColorWaves from './components/ColorWaves';
-import Tasks from './containers/TasksContainer';
+import TasksContainer from './containers/TasksContainer';
+import Users from './pages/Users'
 import Days from './containers/DaysContainer';
 
 class App extends Component {
@@ -41,7 +42,8 @@ class App extends Component {
         <Route path="/sign_up" exact render={(props) => <SignUp {...props}/> } />
         <Route path="/users" exact render={(props) => <Profiles {...props}/> } />
         <Route path="/user" exact render={(props) => <Profile {...props}/> } /> */}
-        <Route path="/tasks" exact render={(props) => <Tasks {...props}/> } /> 
+        <Route path="/tasks" render={(props) => <TasksContainer {...props}/> } /> 
+        <Route path="/users" render={(props) => <Users {...props}/> } /> 
         {/* <Route path="/tasks_by_day" exact render={(props) => <Days {...props}/> } />  */}
       </div>
     );

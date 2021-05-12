@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from '../components/LoginForm'
 import SignUpForm from '../components/SignUpForm'
 import TasksContainer from '../containers/TasksContainer'
+import Users from './Users'
 
 // login form and sign up form
 
@@ -12,7 +13,6 @@ export default class Welcome extends Component {
   }
 
   handleClick = (event) => {
-    console.log(event.target)
     this.setState({display: !this.state.display})
   }
 
@@ -25,7 +25,8 @@ export default class Welcome extends Component {
         {/* <button onClick={this.handleClick}>Sign Up</button> */}
         {this.state.display && <LoginForm />}
         {/* {this.state.display && <SignUpForm />} */}
-        <TasksContainer />
+        <Users />
+        {/* <TasksContainer /> */}
       </div>
     )
   }

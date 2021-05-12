@@ -2,33 +2,37 @@
 // Each day displays Task description/ completed button
 
 import React, { Component } from 'react'
-import Day from '../components/Task'
+import Task from '../components/Task'
 import AddTask from '../components/AddTask'
+import Day from '../components/Day'
+
 
 const daysUrl = 'http://localhost:9393/tasks_by_day'
 // create route for all tasks with url tasks
 
-export default class Tasks extends Component {
+export default class DaysContainer extends Component {
     state = {
         days: []
     }
     //create fetch request for all tasks
     // for each task create task item
 
+    componentDidMount() {
+        fetch('http://localhost:9393/days')
+            .then(response => response.json())
+            .then(days => this.setState({days}))
+        }
+        
     displayTasks = () => {
-        // fetch(tasksUrl)
-        //     .then(response => response.json())
-        //     .then(days => this.setState({days}))
-        //     .then(this.state.days.map(task => {
-        //         return <Task key={task.id} task={task} />
-        //     }))
+        return this.state.days.map(day => {
+            return <Day day={day} key={day.id}/>
+        })
     }
 
     render() {
         return (
             <div>
                 {this.displayTasks()}
-                <AddTask />
             </div>
         )
     }

@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import User from './User'
 
-const UsersUrl = 'http://localhost:9393/Users'
+const usersUrl = 'http://localhost:9393/users'
 // create route for all tasks with url tasks
 
 export default class Users extends Component {
@@ -11,13 +11,16 @@ export default class Users extends Component {
         users: []
     }
 
-    displayUsers = () => {
-        fetch(UsersUrl)
+    componentDidMount() {
+        fetch(usersUrl)
             .then(response => response.json())
-            .then(users => this.setState({users}))
-            .then(this.state.Users.map(user => {
-                <User key={user.id} User={Uuser}/>
-            }))
+            .then(users => this.setState({ users }))
+    }
+
+    displayUsers = () => {
+        return this.state.users.map(user => {
+           return <User key={user.id} user={user}/>
+        })
     }
     render() {
         return (
