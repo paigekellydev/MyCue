@@ -11,20 +11,30 @@ export default class Day extends Component {
     componentDidMount() {
         const day_id = this.props.day.id
         fetch(`http://localhost:9393/days/${day_id}`)
-            .then(response => response.json())
-            .then(tasks => this.setState({tasks}))
+        .then(response => response.json())
+        .then(tasks => this.setState({tasks}))
     }
+    
+    // displayTasks = () => {
+    //     console.log(this.state.tasks)
+        
+    //     return this.state.tasks.map(task => {
+    //         return <Task key={task.id} task={task} />})
+    // }
 
     displayTasks = () => {
-        return this.state.tasks.map(task => {
-            return <Task key={task.id} task={task} />})
+        const filteredTasks = this.state.tasks.filter(task => task.person_id == this.props.user_id)
+        return filteredTasks.map(task => {
+            return <li>{task.desciption}</li>})
     }
 
     render() {
         return (
             <div>  
                 <h1>{this.props.day.day_of_the_week}</h1>
-                {this.displayTasks()}
+                <ul>
+                    {this.displayTasks()}
+                </ul>
             </div>
         )
     }

@@ -1,4 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default class LoginForm extends Component {
 
@@ -14,8 +20,8 @@ export default class LoginForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.login(this.state.username)
-      // .then(response => this.props.history.push('/home'))
+    event.stopPropagation()
+    this.props.props.history.push('/users')
   }
 
   render() {
@@ -32,6 +38,7 @@ export default class LoginForm extends Component {
             onChange={this.handleChange}
           /><br></br>
           <input type="submit"/>
+          {/* type="submit"/> */}
         </form>
       </div>
     )

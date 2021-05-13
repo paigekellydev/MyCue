@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import LoginForm from '../components/LoginForm'
 import SignUpForm from '../components/SignUpForm'
 import TasksContainer from '../containers/TasksContainer'
-import Users from './Users'
 
 // login form and sign up form
 
@@ -23,10 +22,9 @@ export default class Welcome extends Component {
         <p>( task manager )</p> */}
         <button onClick={this.handleClick}>Login</button>
         {/* <button onClick={this.handleClick}>Sign Up</button> */}
-        {this.state.display && <LoginForm />}
+        {this.state.display && <LoginForm props={this.props}/>}
         {/* {this.state.display && <SignUpForm />} */}
-        <Users />
-        {/* <TasksContainer /> */}
+        <TasksContainer />
       </div>
     )
   }

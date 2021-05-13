@@ -12,25 +12,26 @@ const tasksUrl = 'http://localhost:9393/tasks'
 export default class TasksContainer extends Component {
     
     state = {
-        tasks: []
+        tasks: [],
+        user_id: this.props.user_id
     }
     //create fetch request for all tasks
     // for each task create task item
     componentDidMount() {
-        const user_id = this.props.user_id
+        const user_id = this.state.user_id
         fetch(`http://localhost:9393/users/${user_id}/tasks`)
             .then(response => response.json())
             .then(tasks => this.setState({tasks}))
     }
 
-    displayTasks = () => {
+    displayTasks = () => { 
         return this.state.tasks.map(task => {
             return <Task key={task.id} task={task} />})
     }
 
     render() {
         return (
-            <div className="tasks-container">
+            <div className="container">
                 {this.displayTasks()}
                 {/* <AddTask /> */}
             </div>

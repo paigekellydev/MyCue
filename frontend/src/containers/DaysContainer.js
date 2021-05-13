@@ -18,20 +18,20 @@ export default class DaysContainer extends Component {
     // for each task create task item
 
     componentDidMount() {
-        fetch('http://localhost:9393/days')
+        fetch(`http://localhost:9393/days`)
             .then(response => response.json())
             .then(days => this.setState({days}))
         }
         
     displayTasks = () => {
         return this.state.days.map(day => {
-            return <Day day={day} key={day.id}/>
+            return <Day day={day} id={day.id} user_id={this.props.user_id}/>
         })
     }
 
     render() {
         return (
-            <div>
+            <div className="container">
                 {this.displayTasks()}
             </div>
         )
