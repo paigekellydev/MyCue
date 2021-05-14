@@ -64,7 +64,7 @@ export default class AddTask extends Component {
             onSelect={this.handleDays} // Function will trigger on select event
             onRemove={this.handleRemove} // Function will trigger on remove event
             displayValue="day" // Property name to display in the dropdown options
-            placeholder="choose day(s)"
+            placeholder="Select day(s)"
         />
     }
 
@@ -94,16 +94,17 @@ export default class AddTask extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Task description</label>
-                    <input type='text' onChange={this.handleTask}></input>
-                    <label>What days of the week?</label>
+                <form onSubmit={this.handleSubmit} class="add-task">
+                    <label class="form-name">New Task Form</label><br></br>
+                    <label>Task:</label>
+                    <input class="task-input" placeholder="Enter task description" type='text' onChange={this.handleTask}></input> <br></br>
+                    <label>Schedule Task Days:</label>
                     {this.renderDays()}
                     {/* {this.renderUsers()} */}
-                    <label></label>
+                    <label>Assign Task to a Person:</label>
                     <select placeholder="Assign task"  value={this.state.value} onChange={this.handleUser}>
                         {this.renderUsers()}
-                    </select>
+                    </select> <br></br>
                     {/* <label>How many days per week?</label>
                         {this.renderFrequency()} */}
                     <input class="button"type="submit"></input>

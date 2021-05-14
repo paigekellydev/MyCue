@@ -30,7 +30,7 @@ export default class Day extends Component {
 
     render() {
         return (
-            <div>  
+            <div class="day">  
                 <h1>{this.props.day.day_of_the_week}</h1>
                 <ul>
                     {this.displayTasks()}

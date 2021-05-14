@@ -29,7 +29,7 @@ export default class LoginForm extends Component {
       <div>
         {/* <p>Please Log In</p> */}
         <form class="login-form" onSubmit={this.handleSubmit}>
-          <label>Login</label><br></br>
+          <label class="form-name">Login</label><br></br>
           <label id="username-field">Username:</label>
           <input 
             type="text" 
