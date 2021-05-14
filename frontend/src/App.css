@@ -10,13 +10,16 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 } */
 
+html {
+  height: 100%
+}
 body {
   /* background-image: linear-gradient(to top right, rgb(55, 0, 255), #662cab); */
   background: coral;
   background: linear-gradient(180deg, #d83787 0%,#f4703f 35%, #fdca6f 100%);
   color: white;
   width: auto;
-  height: 800px;
+  height: 100%;
 }
 
 .welcome-container {
@@ -150,45 +153,58 @@ body {
   filter: drop-shadow(1px 1px 100px #fdca6f);
 } */
 
-.card {
-  /* Add shadows to create the "task-card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  background-color: cornsilk;
-  transition: 0.3s;
-  width: 20%;
-  transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
+
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+/* .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+} */
 
 /* Add some padding inside the task-card container */
 .container {
   display: flex;
-  wrap: wrap;
+  flex-wrap: wrap;
   font-size: 20px;
   text-align: left;
-  width: auto;
+  width: 100%;
   margin: auto;
+  align-self: center;
 }
 
 .day h1 {
   text-align: center;
   font-size: 20px;
-  width: 200px;
   color: #662cab;
   padding: 20px;
-  wrap:wrap;
+  margin-bottom: 1px;
 }
 
-.day {
-  margin: 20px;
+.day, .card, .profiles {
+  flex-wrap:wrap;
+  width: 25%;
+  margin: auto;
+  height: 200px;
+  background-color: white;
+  box-shadow: 2px 2px 10px blue;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 10px;
+  align-self: center;
+  text-align: left;
+  color: black;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.profiles {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  margin-top: 80px;
 }
 
 /* div {
@@ -196,7 +212,7 @@ body {
   flex-wrap: wrap;
 } */
 
-h1, h2, p {
+h1 {
   height:auto;
   margin: 0;
   margin-top: 10%;
@@ -210,7 +226,7 @@ h1, h2, p {
   font-size: 3em;
 } */
 
-#nav-bar {
+/* #nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -224,7 +240,7 @@ h1, h2, p {
 
 #nav-bar ul li {
   margin-right: 20px;
-}
+} */
 
 form {
   background: white;
@@ -256,11 +272,11 @@ label, input {
   border-radius: 2px;
 }
 
-#multiselectContainerReact {
-
+ul {
+  margin: 2px;
 }
 
-form, .day {
+form {
   background-color: white;
   box-shadow: 2px 2px 10px blue;
   border-radius: 10px;
@@ -274,13 +290,17 @@ form, .day {
   /* margin: auto; */
 }
 li {
+  list-style: bullet;
+}
+
+.task-li {
   list-style: none;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
-.flex-container {
-  width: 50%;
+/* .flex-container {
+  width: 100%;
   height: auto;
   align-content: center;
   margin: auto;
@@ -290,7 +310,7 @@ li {
   flex-wrap: wrap;
   justify-content: space-around;
   column-gap: 300px;
-} 
+}  */
 
 .form-name {
   color:#d83787;
@@ -342,7 +362,7 @@ li {
       left: 18rem;
       animation: bottomAnimation 2s 0.25s infinite alternate;
     } */
-    .login-btn:hover, button:hover, .button:hover {
+    .login-btn:hover, button:hover, .button:hover, .profiles:hover {
       /* background: rgba(225, 51, 45, 0); */
       background: linear-gradient(180deg,#662cab 35%, blue 100%);
     letter-spacing: 1px;

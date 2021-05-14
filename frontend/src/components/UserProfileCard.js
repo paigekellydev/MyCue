@@ -11,7 +11,8 @@ export default class UserProfileCard extends Component {
 
     render() {
         return (
-            <div className="container" onClick={this.handleClick}>
+            <div className="profiles" onClick={this.handleClick}>
+                {/* <img src={this.props.image} /> */}
                 <p>{this.props.user.name}</p>
             </div>
         )
