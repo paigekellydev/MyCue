@@ -28,7 +28,7 @@ export default class LoginForm extends Component {
     return (
       <div>
         {/* <p>Please Log In</p> */}
-        <form onSubmit={this.handleSubmit}>
+        <form class="login-form" onSubmit={this.handleSubmit}>
           <label>Login</label><br></br>
           <label id="username-field">Username:</label>
           <input 
@@ -37,13 +37,12 @@ export default class LoginForm extends Component {
             value={this.state.username}
             onChange={this.handleChange}
           /><br></br>
-          <label id="password-field">Username:</label>
+          <label id="password-field">Password:</label>
           <input 
-            type="text" 
+            type="password" 
             name="password" 
-            value={'*****'}
           /><br></br>
-          <input type="submit"/>
+          <input class="login-btn" type="submit"/>
           {/* type="submit"/> */}
         </form>
       </div>

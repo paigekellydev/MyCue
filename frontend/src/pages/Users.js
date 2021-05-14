@@ -37,9 +37,9 @@ export default class Users extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleClick}>+</button>
-                {this.state.display && <AddTask users={this.state.users}/>}
+            <div class="users-container">
+                {!this.state.display &&  <button onClick={this.handleClick}>+ Add New Task</button>}
+                {this.state.display && <AddTask users={this.state.users} handleClick={this.handleClick}/>}
                 {this.displayUsers()}
             </div>
         )

@@ -64,6 +64,7 @@ export default class AddTask extends Component {
             onSelect={this.handleDays} // Function will trigger on select event
             onRemove={this.handleRemove} // Function will trigger on remove event
             displayValue="day" // Property name to display in the dropdown options
+            placeholder="choose day(s)"
         />
     }
 
@@ -77,15 +78,16 @@ export default class AddTask extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.handleClick(event)
         
         fetch(tasksUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: {
+            body: JSON.stringify({
                 desciption: this.state.taskDescription,
                 frequency_per_week: this.state.frequency,
                 person_id: this.state.selectedUserId
-            }
+            })
         })
     }
     
@@ -98,12 +100,13 @@ export default class AddTask extends Component {
                     <label>What days of the week?</label>
                     {this.renderDays()}
                     {/* {this.renderUsers()} */}
-                    <select value={this.state.value} onChange={this.handleUser}>
+                    <label></label>
+                    <select placeholder="Assign task"  value={this.state.value} onChange={this.handleUser}>
                         {this.renderUsers()}
                     </select>
                     {/* <label>How many days per week?</label>
                         {this.renderFrequency()} */}
-                    <input type="submit"></input>
+                    <input class="button"type="submit"></input>
                 </form>
             </div>
         )
