@@ -72,6 +72,10 @@ DayTask.create(
     day_id: monday.id
 )
 DayTask.create(
+    task_id: deep_clean_kitchen.id,
+    day_id: monday.id
+)
+DayTask.create(
     task_id: trash_day.id,
     day_id: wednesday.id
 )

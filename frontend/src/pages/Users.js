@@ -10,7 +10,8 @@ const usersUrl = 'http://localhost:9393/users'
 
 export default class Users extends Component {
     state = {
-        users: []
+        users: [],
+        display: false
     }
 
     componentDidMount() {
@@ -29,11 +30,16 @@ export default class Users extends Component {
             />)
         })
     }
+    
+    handleClick = (event) => {
+        this.setState({display: !this.state.display})
+    }
 
     render() {
         return (
             <div>
-                <AddTask users={this.state.users}/>
+                <button onClick={this.handleClick}>+</button>
+                {this.state.display && <AddTask users={this.state.users}/>}
                 {this.displayUsers()}
             </div>
         )

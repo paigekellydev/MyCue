@@ -37,6 +37,12 @@ export default class LoginForm extends Component {
             value={this.state.username}
             onChange={this.handleChange}
           /><br></br>
+          <label id="password-field">Username:</label>
+          <input 
+            type="text" 
+            name="password" 
+            value={'*****'}
+          /><br></br>
           <input type="submit"/>
           {/* type="submit"/> */}
         </form>
