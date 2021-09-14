@@ -13,8 +13,9 @@ export default class TasksContainer extends Component {
     
     state = {
         tasks: [],
-        user_id: this.props.user_id
+        user_id: this.props.user_id,
     }
+
     //create fetch request for all tasks
     // for each task create task item
     componentDidMount() {

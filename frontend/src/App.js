@@ -18,15 +18,6 @@ class App extends Component {
   selected = (user) => {
     this.setState({selectedUser: user})
   }
-  
-  //create fetch request for all tasks
-  // for each task create task item
-
-  componentDidMount() {
-    fetch(`http://localhost:9393/days`)
-      .then(response => response.json())
-      .then(days => this.setState({days}))
-  }
 
   render(){
     return (
