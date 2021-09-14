@@ -11,11 +11,21 @@ import LoginForm from './components/LoginForm';
 
 class App extends Component {
   state = {
-    selectedUser: {}
+    selectedUser: {},
+    days: []
   }
 
   selected = (user) => {
     this.setState({selectedUser: user})
+  }
+  
+  //create fetch request for all tasks
+  // for each task create task item
+
+  componentDidMount() {
+    fetch(`http://localhost:9393/days`)
+      .then(response => response.json())
+      .then(days => this.setState({days}))
   }
 
   render(){
@@ -24,7 +34,7 @@ class App extends Component {
         <Route path="/" exact render={(props) => <Welcome {...props}/> } />
         <Route path="/login" render={(props) => <LoginForm {...props}/> } />
         <Route path="/users" render={(props) => <Users selected={this.selected} {...props}/> } /> 
-        <Route path="/user/:id" render={(props) => <User user={this.state.selectedUser} {...props}/> } /> 
+        <Route path="/user/:id" render={(props) => <User user={this.state.selectedUser} days={this.state.days}{...props}/> } /> 
       </div>
     );
   }

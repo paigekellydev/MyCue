@@ -34,13 +34,14 @@ export default class AddTask extends Component {
     handleDays = (event) => {
         if (event[0].day === 'Every Day') {
             this.setState({selectedDays: 
-                [{day: 'Monday', id: 15},
-                {day: 'Tuesday', id: 16},
-                {day: 'Wednesday', id: 17},
-                {day: 'Thursday', id: 18},
-                {day: 'Friday', id: 19},
-                {day: 'Saturday', id: 20},
-                {day: 'Sunday', id: 21}], 
+                [
+                    {day: 'Monday', id: 15},
+                    {day: 'Tuesday', id: 16},
+                    {day: 'Wednesday', id: 17},
+                    {day: 'Thursday', id: 18},
+                    {day: 'Friday', id: 19},
+                    {day: 'Saturday', id: 20},
+                    {day: 'Sunday', id: 21}], 
                 frequency: 7})
         } else {
             this.setState({selectedDays: event, frequency: event.length})
@@ -58,14 +59,16 @@ export default class AddTask extends Component {
     }
 
     renderDays = () => {
-        return <Multiselect
-            options={this.state.options} // Options to display in the dropdown
-            selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-            onSelect={this.handleDays} // Function will trigger on select event
-            onRemove={this.handleRemove} // Function will trigger on remove event
-            displayValue="day" // Property name to display in the dropdown options
-            placeholder="Select day(s)"
-        />
+        return (
+            <Multiselect
+                options={this.state.options} // Options to display in the dropdown
+                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                onSelect={this.handleDays} // Function will trigger on select event
+                onRemove={this.handleRemove} // Function will trigger on remove event
+                displayValue="day" // Property name to display in the dropdown options
+                placeholder="Select day(s)"
+            />
+        )
     }
 
     handleTask = (event) => {

@@ -14,14 +14,14 @@ export default class DaysContainer extends Component {
     state = {
         days: []
     }
-    //create fetch request for all tasks
-    // for each task create task item
+    // //create fetch request for all tasks
+    // // for each task create task item
 
     componentDidMount() {
         fetch(`http://localhost:9393/days`)
             .then(response => response.json())
             .then(days => this.setState({days}))
-        }
+    }
         
     displayTasks = () => {
         return this.state.days.map(day => {
