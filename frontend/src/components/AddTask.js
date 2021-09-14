@@ -71,7 +71,7 @@ export default class AddTask extends Component {
     createDayTask = (selectedDays) => {
         return this.state.selectedDays.map(day => {
             return (
-                fetch(tasksUrl, {
+                fetch(dayTasksUrl, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -79,6 +79,7 @@ export default class AddTask extends Component {
                         task_id: this.state.taskId,
                     })
                 })
+                .then(console.log("complete"))
             )
         })
     }
@@ -87,7 +88,7 @@ export default class AddTask extends Component {
         event.preventDefault()
         this.props.handleClick(event)
         
-        fetch(dayTasksUrl, {
+        fetch(tasksUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
