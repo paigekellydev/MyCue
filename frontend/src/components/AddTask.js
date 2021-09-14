@@ -3,8 +3,6 @@
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { Multiselect } from 'multiselect-react-dropdown';
-
-
 import React, { Component } from 'react'
 
 const tasksUrl = 'http://localhost:9393/all_tasks'
@@ -13,36 +11,27 @@ const dayTasksUrl = 'http://localhost:9393/dt'
 export default class AddTask extends Component {
     
     state = {
-        options: 
-        [   
-            {day: 'Every Day', id:1},
-            {day: 'Monday', id: 15},
-            {day: 'Tuesday', id: 16},
-            {day: 'Wednesday', id: 17},
-            {day: 'Thursday', id: 18},
-            {day: 'Friday', id: 19},
-            {day: 'Saturday', id: 20},
-            {day: 'Sunday', id: 21}
-        ],
+        options: this.props.days,
         frequency: 0,
         selectedDays: [],
         selectedUserId: 5,
         taskDescription: "",
         taskId: null
     }
+
+    componentDidMount() {
+        const everyDay = {"day_of_the_week": "Everyday", id: 0}
+        this.setState({options:[...this.state.options, everyDay]})
+    }
     
     handleDays = (event) => {
-        if (event[0].day === 'Every Day') {
-            this.setState({selectedDays: 
-                [
-                    {day: 'Monday', id: 15},
-                    {day: 'Tuesday', id: 16},
-                    {day: 'Wednesday', id: 17},
-                    {day: 'Thursday', id: 18},
-                    {day: 'Friday', id: 19},
-                    {day: 'Saturday', id: 20},
-                    {day: 'Sunday', id: 21}], 
-                frequency: 7})
+        console.log(event[0].id)
+        if (event[0].id === 0) {
+            this.setState(
+                {
+                    selectedDays: this.props.days,
+                    frequency: 7
+                })
         } else {
             this.setState({selectedDays: event, frequency: event.length})
         }
@@ -65,7 +54,7 @@ export default class AddTask extends Component {
                 selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
                 onSelect={this.handleDays} // Function will trigger on select event
                 onRemove={this.handleRemove} // Function will trigger on remove event
-                displayValue="day" // Property name to display in the dropdown options
+                displayValue="day_of_the_week" // Property name to display in the dropdown options
                 placeholder="Select day(s)"
             />
         )
@@ -92,6 +81,15 @@ export default class AddTask extends Component {
                 person_id: this.state.selectedUserId
             })
         })
+        // fetch(dayTasksUrl, {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify({
+        //         day_id: this.state.taskDescription,
+        //         task_id: this.state.frequency,
+        //         person_id: this.state.selectedUserId
+        //     })
+        // })
     }
     
     render() {
