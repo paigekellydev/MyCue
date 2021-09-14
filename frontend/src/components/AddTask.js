@@ -22,10 +22,10 @@ export default class AddTask extends Component {
     componentDidMount() {
         const everyDay = {"day_of_the_week": "Everyday", id: 0}
         this.setState({options:[...this.state.options, everyDay]})
+        this.setState({taskId: this.props.previousTaskId + 1})
     }
     
     handleDays = (event) => {
-        console.log(event[0].id)
         if (event[0].id === 0) {
             this.setState(
                 {
@@ -68,11 +68,26 @@ export default class AddTask extends Component {
         this.setState({ selectedUserId: event.target.value })
     }
 
+    createDayTask = (selectedDays) => {
+        return this.state.selectedDays.map(day => {
+            return (
+                fetch(tasksUrl, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        day_id: day.id,
+                        task_id: this.state.taskId,
+                    })
+                })
+            )
+        })
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.handleClick(event)
         
-        fetch(tasksUrl, {
+        fetch(dayTasksUrl, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -81,6 +96,11 @@ export default class AddTask extends Component {
                 person_id: this.state.selectedUserId
             })
         })
+        .then(this.createDayTask())
+
+        // .then(fetch(tasksUrl)
+        //     .then(response => response.json())
+        //     .then(console.log(response))
         // fetch(dayTasksUrl, {
         //     method: 'POST',
         //     headers: {'Content-Type': 'application/json'},
