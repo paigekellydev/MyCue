@@ -53,10 +53,6 @@ DayTask.create(
 )
 DayTask.create(
     task_id: living_room.id,
-    day_id: wednesday.id
-)
-DayTask.create(
-    task_id: living_room.id,
     day_id: thursday.id
 )
 DayTask.create(
@@ -114,10 +110,6 @@ DayTask.create(
 )
 DayTask.create(
     task_id: dishes.id,
-    day_id: wednesday.id
-)
-DayTask.create(
-    task_id: dishes.id,
     day_id: thursday.id
 )
 DayTask.create(
@@ -148,10 +140,6 @@ DayTask.create(
 DayTask.create(
     task_id: sweep_floor.id,
     day_id: tuesday.id
-)
-DayTask.create(
-    task_id: sweep_floor.id,
-    day_id: wednesday.id
 )
 DayTask.create(
     task_id: sweep_floor.id,

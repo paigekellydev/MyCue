@@ -1,26 +1,10 @@
-/* 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-button:focus {
-  width: 200px;
-  height: 200px;
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-} */
-
-html {
-  height: 100%
-}
-body {
-  /* background-image: linear-gradient(to top right, rgb(55, 0, 255), #662cab); */
-  background: coral;
+#root {
   background: linear-gradient(180deg, #d83787 0%,#f4703f 35%, #fdca6f 100%);
   color: white;
   width: auto;
-  height: 100%;
+  min-height: 100vh;
 }
+
 
 .welcome-container {
   width:80%;
@@ -28,16 +12,6 @@ body {
   align-content: center;
   align-self: center;
   text-align: center;
-}
-
-.color-waves {
-  position: fixed;
-  margin:-3000;
-  width:cover;
-  height:400px;
-  background-size: cover;
-  opacity: .83;
-  animation: vibrate-fast 8s infinite;
 }
 
 @keyframes shake-vertical {
@@ -134,49 +108,26 @@ body {
   }
 }
 
-/* body {
-}
-
-#pink-1, #pink-1b {
-  filter: drop-shadow(1px 1px 100px #f4703f);
-}
-
-#pink-1b, #light-orange-b, #pink-2b, #orange-2b, #orange-1b {
-  transform: rotateX(180deg);
-}
-
-#light-orange, #light-orange-b, #pink-2, #pink-2b, #orange-2, #orange-2b {
-  filter: drop-shadow(1px 1px 100px #d83787);
-}
-
-#orange-1, #orange-1b {
-  filter: drop-shadow(1px 1px 100px #fdca6f);
-} */
-
-
-
-/* On mouse-over, add a deeper shadow */
-/* .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-} */
-
 /* Add some padding inside the task-card container */
 .container {
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   font-size: 20px;
   text-align: left;
-  width: 100%;
   margin: auto;
   align-self: center;
+}
+
+li {
+  margin: 10px;
+  padding-top: 0;
 }
 
 .day h1 {
   text-align: center;
   font-size: 20px;
   color: #662cab;
-  padding: 20px;
+  /* padding: 20px; */
   margin-bottom: 1px;
 }
 
@@ -220,8 +171,8 @@ body {
 h1 {
   height:auto;
   margin: 0;
-  margin-top: 10%;
-  margin-bottom: 35px;
+  padding-top: 10px;
+  /* padding-bottom: 35px; */
   text-align: center;
   font-size: 5em;
 }
@@ -370,13 +321,14 @@ li {
     .login-btn:hover, button:hover, .button:hover, .profiles:hover {
       /* background: rgba(225, 51, 45, 0); */
       background: linear-gradient(180deg,#662cab 35%, blue 100%);
-    letter-spacing: 1px;
-    font-weight: 900;
-    stroke-width: 30;
-    stroke-dasharray: 15em, 310;
-    stroke-dashoffset: 48;
-    -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      color: whitesmoke;
+      letter-spacing: 1px;
+      font-weight: 900;
+      stroke-width: 30;
+      stroke-dasharray: 15em, 310;
+      stroke-dashoffset: 48;
+      -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
       /* color: rgb(70, 66, 66);
     
         top: 0;
