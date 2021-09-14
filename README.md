@@ -2,6 +2,8 @@
 ## Description
 App created to manage and sort tasks for a household. User can add household members, create and assign tasks, and view tasks by week day. Frontend was created with React. Backend was created using Ruby and db was created using sqlite3
 
+[![Watch the video]](https://www.youtube.com/watch?v=aSBmQblHHkI)
+
 ## Get started with backend
 1. Migrate data `rake db:migrate`
 2. Seed data `rake db:seed`
